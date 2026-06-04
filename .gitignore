@@ -1,0 +1,30 @@
+# Dependências
+node_modules/
+
+# Variáveis de ambiente
+.env
+.env.local
+.env.*.local
+
+# Build
+dist/
+build/
+
+# Banco de dados local
+data/*.db
+data/*.db-shm
+data/*.db-wal
+
+# Configurações locais do Claude Code
+.claude/settings.local.json
+
+# Logs
+*.log
+npm-debug.log*
+
+# Sistema operacional
+.DS_Store
+Thumbs.db
+
+# Cobertura de testes
+coverage/
