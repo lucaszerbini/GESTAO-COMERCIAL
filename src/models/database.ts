@@ -1,4 +1,3 @@
-// Modulo de configuracao e conexao com o banco de dados
 import fs from 'fs';
 import path from 'path';
 

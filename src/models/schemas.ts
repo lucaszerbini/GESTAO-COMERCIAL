@@ -1,4 +1,3 @@
-// Definicao dos schemas e modelos do sistema
 import { z } from 'zod';
 
 export const enderecoSchema = z.object({
