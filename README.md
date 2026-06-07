@@ -363,3 +363,162 @@ GET /produtos/1/ean13
 ```
 
 ---
+
+### Pedidos
+
+**Criar pedido**
+```http
+POST /pedidos
+Content-Type: application/json
+
+{
+  "cliente_id": 1,
+  "itens": [
+    { "produto_id": 1, "quantidade": 2, "preco_unitario": 18.90 },
+    { "produto_id": 3, "quantidade": 1, "preco_unitario": 45.00 }
+  ],
+  "desconto": 5.00,
+  "taxa_entrega": 8.00,
+  "observacoes": "Entregar após as 18h"
+}
+```
+
+**Atualizar status do pedido**
+```http
+PATCH /pedidos/1/status
+Content-Type: application/json
+
+{
+  "status": "confirmado"
+}
+```
+
+**Resumo de vendas por período**
+```http
+GET /pedidos/resumo?data_inicio=2025-01-01&data_fim=2025-01-31
+```
+
+---
+
+### Financeiro
+
+**Listar lançamentos por período**
+```http
+GET /financeiro?data_inicio=2025-01-01&data_fim=2025-01-31&tipo=receita
+```
+
+**Criar lançamento manual**
+```http
+POST /financeiro
+Content-Type: application/json
+
+{
+  "tipo": "despesa",
+  "categoria": "Aluguel",
+  "descricao": "Aluguel de janeiro/2025",
+  "valor": 2500.00,
+  "data": "2025-01-05"
+}
+```
+
+**Fluxo de caixa**
+```http
+GET /financeiro/fluxo-caixa?data_inicio=2025-01-01&data_fim=2025-01-31
+```
+
+**Fluxo diário**
+```http
+GET /financeiro/diario?data_inicio=2025-01-01&data_fim=2025-01-07
+```
+
+---
+
+### Funcionários
+
+**Criar funcionário**
+```http
+POST /funcionarios
+Content-Type: application/json
+
+{
+  "nome": "Maria Oliveira",
+  "cpf": "987.654.321-00",
+  "cargo": "Vendedora",
+  "salario_base": 2500.00,
+  "data_admissao": "2024-03-01"
+}
+```
+
+**Calcular salário líquido**
+```http
+POST /funcionarios/calcular-salario
+Content-Type: application/json
+
+{
+  "salario_bruto": 4500.00
+}
+```
+
+**Calcular férias**
+```http
+POST /funcionarios/calcular-ferias
+Content-Type: application/json
+
+{
+  "salario_bruto": 4500.00,
+  "dias_ferias": 30,
+  "abono_pecuniario": true
+}
+```
+
+**Registrar demissão**
+```http
+POST /funcionarios/1/demitir
+Content-Type: application/json
+
+{
+  "data_demissao": "2025-01-31"
+}
+```
+
+---
+
+### Integrações
+
+**Gerar código de barras SVG**
+```http
+GET /barcode?codigo=7891234567890&formato=EAN13
+```
+
+**Imprimir cupom**
+```http
+POST /imprimir
+Content-Type: application/json
+
+{
+  "pedido_id": 1
+}
+```
+
+**Enviar produto para balança**
+```http
+POST /balanca/7891234567890
+```
+
+---
+
+### Health Check
+
+```http
+GET /health
+```
+
+Resposta:
+```json
+{
+  "success": true,
+  "data": { "status": "ok", "timestamp": "2025-01-15T10:30:00.000Z" }
+}
+```
+
+---
