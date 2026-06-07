@@ -274,3 +274,92 @@ gestao-comercial/
 ```
 
 ---
+
+## Exemplos de Uso da API
+
+Todos os exemplos abaixo consideram o servidor rodando em `http://localhost:3000/api`.
+
+---
+
+### Clientes
+
+**Listar clientes com paginação e busca**
+```http
+GET /clientes?page=1&pageSize=10&search=João
+```
+
+**Criar cliente**
+```http
+POST /clientes
+Content-Type: application/json
+
+{
+  "nome": "João da Silva",
+  "telefone": "(11) 99999-0000",
+  "email": "joao@email.com",
+  "cpf_cnpj": "123.456.789-00",
+  "endereco": {
+    "logradouro": "Rua das Flores",
+    "numero": "123",
+    "bairro": "Centro",
+    "cidade": "São Paulo",
+    "estado": "SP",
+    "cep": "01310-100"
+  }
+}
+```
+
+**Histórico de pedidos do cliente**
+```http
+GET /clientes/1/historico
+```
+
+---
+
+### Produtos
+
+**Listar produtos com filtro de estoque baixo**
+```http
+GET /produtos?estoque_baixo=true&page=1&pageSize=20
+```
+
+**Criar produto**
+```http
+POST /produtos
+Content-Type: application/json
+
+{
+  "nome": "Arroz Tipo 1 5kg",
+  "codigo_barras": "7891234567890",
+  "preco_custo": 12.50,
+  "preco_venda": 18.90,
+  "estoque_atual": 100,
+  "estoque_minimo": 10,
+  "unidade": "un",
+  "categoria": "Alimentos"
+}
+```
+
+**Movimentar estoque**
+```http
+POST /produtos/1/movimentar
+Content-Type: application/json
+
+{
+  "tipo": "entrada",
+  "quantidade": 50,
+  "motivo": "Compra de fornecedor - NF 001234"
+}
+```
+
+**Buscar por código de barras**
+```http
+GET /produtos/codigo/7891234567890
+```
+
+**Gerar EAN-13**
+```http
+GET /produtos/1/ean13
+```
+
+---
