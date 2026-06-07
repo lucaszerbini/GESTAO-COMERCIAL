@@ -158,5 +158,72 @@ Conecta o sistema com dispositivos físicos e utilitários:
 
 ### Funcionalidades 
 
-| Camada | Tecnologia ||---|---| 
+### Fluxo de Caixa
+Relatório consolidado de receitas e despesas por período com saldo final, breakdown diário e agrupamento por categoria.
 
+### Cálculo de Salário com INSS e IR
+Cálculo progressivo do INSS (4 faixas, teto R$ 7.786,02) e IRRF (5 faixas com deduções), seguindo as tabelas vigentes de 2024. Retorna o detalhamento de cada desconto e o salário líquido final.
+
+### Cálculo de Férias
+Calcula o valor bruto e líquido das férias com adicional constitucional de 1/3, INSS e IRRF, com opção de abono pecuniário (venda de 10 dias de férias).
+
+### Leitor de Código de Barras
+Busca de produtos pelo código de barras e geração de SVG de código de barras nos formatos CODE128 e EAN-13, prontos para impressão ou exibição na tela.
+
+### Controle de Estoque
+Movimentações tipadas (entrada, saída, ajuste) com rastreabilidade por referência (ex: pedido que originou a saída). Alerta de estoque baixo quando o estoque atual é menor ou igual ao estoque mínimo configurado.
+
+### Sistema de Pedidos
+Criação de pedidos com múltiplos itens, validação de disponibilidade em estoque, atualização de status com transições validadas, reversão automática do estoque ao cancelar e registro financeiro automático ao entregar.
+
+### Integração com Impressora ESC/POS
+Impressão de cupom de pedido em impressora térmica via rede TCP, com suporte a formatação ESC/POS (negrito, alinhamento, corte de papel).
+
+### Integração com Balança
+Envio de dados de produto para balança eletrônica via protocolo TCP, com pacotes formatados conforme o padrão do equipamento.
+
+### Geração de Código de Barras EAN-13
+Geração automática de códigos EAN-13 com prefixo 789 (padrão brasileiro), incluindo cálculo do dígito verificador.
+
+### Cálculo de Taxa de Entrega
+Suporte a desconto e taxa de entrega no cálculo do total dos pedidos (subtotal − desconto + taxa de entrega).
+
+---
+
+## Documentação da API
+
+A documentação interativa Swagger UI está disponível após iniciar o servidor:
+
+```
+http://localhost:3000/api/docs
+```
+
+O JSON da especificação OpenAPI 3.0 pode ser acessado em:
+
+```
+http://localhost:3000/api/docs.json
+```
+
+A documentação cobre todos os endpoints com schemas de requisição e resposta, exemplos, códigos de erro e parâmetros de paginação.
+
+---
+
+## Testes
+
+O projeto usa Jest com Supertest e banco de dados SQLite em memória, garantindo que os testes sejam isolados e não afetem dados reais.
+
+### Executar todos os testes
+
+```bash
+npm test
+```
+
+Os testes cobrem os módulos:
+
+- `tests/clientes.test.ts` — CRUD e validações de clientes
+- `tests/produtos.test.ts` — CRUD, movimentações de estoque e filtros
+- `tests/pedidos.test.ts` — Criação, transições de status e estoque
+- `tests/financeiro.test.ts` — Lançamentos e relatórios
+- `tests/funcionarios.test.ts` — Cadastro, cálculo de salário e férias
+
+---
