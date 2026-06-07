@@ -227,3 +227,50 @@ Os testes cobrem os módulos:
 - `tests/funcionarios.test.ts` — Cadastro, cálculo de salário e férias
 
 ---
+
+## Estrutura de Pastas
+
+```
+gestao-comercial/
+├── data/                          # Arquivos do banco de dados SQLite
+│   └── gestao.db
+├── public/                        # Arquivos estáticos
+├── src/
+│   ├── controllers/
+│   │   ├── index.ts               # Controllers de todos os módulos
+│   │   └── clienteController.ts   # Controller específico de clientes
+│   ├── middlewares/
+│   │   └── validar.ts             # Validação Zod, AppError e respostas padrão
+│   ├── models/
+│   │   ├── database.ts            # Inicialização do SQLite e schema das tabelas
+│   │   └── schemas.ts             # Schemas de validação Zod
+│   ├── routes/
+│   │   └── index.ts               # Definição de todas as rotas da API
+│   ├── services/
+│   │   ├── clienteService.ts      # Regras de negócio de clientes
+│   │   ├── produtoService.ts      # Regras de negócio de produtos e estoque
+│   │   ├── pedidoService.ts       # Regras de negócio de pedidos
+│   │   ├── financeiroService.ts   # Regras de negócio financeiro
+│   │   ├── funcionarioService.ts  # Regras de negócio de funcionários
+│   │   └── integracoesService.ts  # Barcode, impressora ESC/POS e balança
+│   ├── types/
+│   │   └── index.ts               # Interfaces TypeScript
+│   ├── index.ts                   # Ponto de entrada do servidor Express
+│   └── swagger.ts                 # Especificação OpenAPI 3.0
+├── tests/
+│   ├── setup.ts                   # Configuração do Jest e banco em memória
+│   ├── helpers.ts                 # Utilitários para os testes
+│   ├── clientes.test.ts
+│   ├── produtos.test.ts
+│   ├── pedidos.test.ts
+│   ├── financeiro.test.ts
+│   └── funcionarios.test.ts
+├── .env                           # Variáveis de ambiente (não versionado)
+├── .env.example                   # Modelo de variáveis de ambiente
+├── .gitignore
+├── package.json
+├── tsconfig.json
+└── README.md
+```
+
+---
