@@ -527,12 +527,12 @@ Resposta:
 
 | Nome | RA |
 |---|---|
-| <!-- Arthur Favaretto Rinaldi De Araújo --> | <!-- 1050482523029 --> |
-| <!-- Gabriel Oliveira --> | <!--  --> |
-| <!-- João Victor Bravos dos Santos --> | <!--  --> |
-| <!-- Lucas Nelson Nascimento Zerbine --> | <!--  --> |
-| <!-- Rebeca Eduarda Budia Machado --> | <!-- 1050482523010 --> |
-| <!-- Sidnei Rogério Caus --> | <!-- 1050482513047 --> |
+| Arthur Favaretto Rinaldi De Araújo | 1050482523029 |
+| Gabriel Oliveira | |
+| João Victor Bravos dos Santos | |
+| Lucas Nelson Nascimento Zerbine | 1050482523041 |
+| Rebeca Eduarda Budia Machado | 1050482523010 |
+| Sidnei Rogério Caus | 1050482513047 |
 
 ---
 
