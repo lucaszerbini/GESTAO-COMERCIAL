@@ -533,3 +533,8 @@ Resposta:
 | <!-- Lucas Nelson Nascimento Zerbine --> | <!--  --> |
 | <!-- Rebeca Eduarda Budia Machado --> | <!-- 1050482523010 --> |
 | <!-- Sidnei Rogério Caus --> | <!-- 1050482513047 --> |
+
+---
+
+*Projeto acadêmico — 2º Semestre de ADS*
+
